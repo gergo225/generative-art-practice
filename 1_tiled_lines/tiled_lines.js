@@ -14,6 +14,7 @@ context.fillStyle = 'lightblue';
 context.fillRect(0, 0, size, size);
 context.fill();
 
+// draw from left to right or right to left randomly
 function draw(x, y, width, height) {
 	let leftToRight = Math.random() >= 0.5;
 
@@ -28,4 +29,10 @@ function draw(x, y, width, height) {
 	context.stroke();
 }
 
-draw(0, 0, size, size);
+let step = 40;
+
+for (let x = 0; x < size; x += step) {
+	for (let y = 0; y < size; y += step) {
+		draw(x, y, step, step);
+	}
+}
