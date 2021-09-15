@@ -1,7 +1,7 @@
 let canvas = document.querySelector('canvas');
 let context = canvas.getContext('2d');
 
-let size = 420;
+let size = 480;
 let dpr = window.devicePixelRatio;
 canvas.width = size * dpr;
 canvas.height = size * dpr;
