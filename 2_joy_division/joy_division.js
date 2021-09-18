@@ -21,7 +21,8 @@ for (let y = step; y <= size - step; y += step) {
 	let line = [];
 
 	for (let x = step; x <= size - step; x += step) {
-		let point = { x: x, y: y };
+		let random = Math.random() * 10;
+		let point = { x: x, y: y + random };
 		line.push(point);
 	}
 
