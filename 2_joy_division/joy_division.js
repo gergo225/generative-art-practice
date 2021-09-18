@@ -13,7 +13,9 @@ context.lineWidth = 2;
 context.fillStyle = 'orange';
 context.fillRect(0, 0, size, size);
 
-let step = 10;
+const step = 10;
+const waveHeight = 3;
+const waveSideOffset = 60;
 let lines = [];
 
 // set up lines
@@ -21,8 +23,11 @@ for (let y = step; y <= size - step; y += step) {
 	let line = [];
 
 	for (let x = step; x <= size - step; x += step) {
-		let random = Math.random() * 10;
-		let point = { x: x, y: y + random };
+		let distanceToCenter = Math.abs(x - size / 2);
+		let variance = Math.max(size / 2 - waveSideOffset - distanceToCenter, 0);
+
+		let offset = Math.random() * variance / (10 / waveHeight) * -1;
+		let point = { x: x, y: y + offset };
 		line.push(point);
 	}
 
