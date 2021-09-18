@@ -44,5 +44,10 @@ for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
 		context.lineTo(lines[lineIndex][linePointIndex].x, lines[lineIndex][linePointIndex].y);
 	}
 
+	context.save();
+	context.globalCompositeOperation = 'destination-out';
+	context.restore();
+	context.fillStyle = 'orange';
+	context.fill();
 	context.stroke();
 }
