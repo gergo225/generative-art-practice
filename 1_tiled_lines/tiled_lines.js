@@ -12,7 +12,6 @@ context.lineWidth = 2;
 
 context.fillStyle = 'lightblue';
 context.fillRect(0, 0, size, size);
-context.fill();
 
 // draw from left to right or right to left randomly
 function draw(x, y, width, height) {
