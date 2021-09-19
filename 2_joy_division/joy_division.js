@@ -13,7 +13,7 @@ context.lineWidth = 2;
 context.fillStyle = 'orange';
 context.fillRect(0, 0, size, size);
 
-const step = 10;
+const step = 14;
 const waveHeight = 3;
 const waveSideOffset = 60;
 let lines = [];
@@ -40,9 +40,15 @@ for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
 	context.beginPath();
 	context.moveTo(lines[lineIndex][0].x, lines[lineIndex][0].y);
 
-	for (let linePointIndex = 0; linePointIndex < lines[lineIndex].length; linePointIndex++) {
-		context.lineTo(lines[lineIndex][linePointIndex].x, lines[lineIndex][linePointIndex].y);
+	for (var linePointIndex = 0; linePointIndex < lines[lineIndex].length - 2; linePointIndex++) {
+		let xc = (lines[lineIndex][linePointIndex].x + lines[lineIndex][linePointIndex + 1].x) / 2;
+		let yc = (lines[lineIndex][linePointIndex].y + lines[lineIndex][linePointIndex + 1].y) / 2;
+		context.quadraticCurveTo(lines[lineIndex][linePointIndex].x, lines[lineIndex][linePointIndex].y, xc, yc);
 	}
+
+	// 'lineIndex' can be accessed here, because it was declared as var (keeps its value after loop ended)
+	context.quadraticCurveTo(lines[lineIndex][linePointIndex].x, lines[lineIndex][linePointIndex].y,
+		lines[lineIndex][linePointIndex + 1].x, lines[lineIndex][linePointIndex + 1].y);
 
 	context.save();
 	context.globalCompositeOperation = 'destination-out';
