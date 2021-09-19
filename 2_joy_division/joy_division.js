@@ -36,7 +36,7 @@ for (let y = step; y <= size - step; y += step) {
 
 
 // draw lines
-for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
+for (let lineIndex = 3; lineIndex < lines.length; lineIndex++) {
 	context.beginPath();
 	context.moveTo(lines[lineIndex][0].x, lines[lineIndex][0].y);
 
