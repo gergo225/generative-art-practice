@@ -21,10 +21,11 @@ for (let y = gap / 2; y <= size; y += gap) {
 	odd = !odd;
 
 	for (let x = gap / 4; x <= size; x += gap) {
-		dot = { x: x + (odd ? gap / 2 : 0), y: y };
+		dot = {
+			x: x + (Math.random() * .8 - .4) * gap + (odd ? gap / 2 : 0),
+			y: y + (Math.random() * .8 - .4) * gap
+		};
 		line.push(dot);
-		context.beginPath();
-		context.arc(dot.x, dot.y, 1, 0, 2 * Math.PI, true);
 		context.fill();
 	}
 	lines.push(line);
