@@ -14,13 +14,17 @@ context.fillRect(0, 0, size, size);
 context.fillStyle = 'purple';
 let gap = size / 7;
 let lines = [];
+let odd = false;
 
 for (let y = gap / 2; y <= size; y += gap) {
 	let line = [];
-	for (let x = gap / 2; x <= size; x += gap) {
-		line.push({ x: x, y: y });
+	odd = !odd;
+
+	for (let x = gap / 4; x <= size; x += gap) {
+		dot = { x: x + (odd ? gap/2 : 0), y: y };
+		line.push(dot);
 		context.beginPath();
-		context.arc(x, y, 1, 0, 2 * Math.PI, true);
+		context.arc(dot.x, dot.y, 1, 0, 2 * Math.PI, true);
 		context.fill();
 	}
 	lines.push(line);
