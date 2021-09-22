@@ -40,6 +40,10 @@ function drawTriangle(pointA, pointB, pointC) {
 	context.lineTo(pointA.x, pointA.y);
 	context.closePath();
 	context.stroke();
+
+	let redness = Math.floor(Math.random() * 10 + 6).toString(16);
+	context.fillStyle = '#' + redness + '5B';
+	context.fill();
 }
 
 odd = true;
