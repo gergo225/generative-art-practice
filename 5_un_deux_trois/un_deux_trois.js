@@ -33,6 +33,12 @@ function draw(x, y, width, height, positions) {
 
 for (let y = step; y < size - step; y += step) {
 	for (let x = step; x < size - step; x += step) {
-		draw(x, y, step, step, [0.5]);
+		if (y < thirdOfHeight) {
+			draw(x, y, step, step, [0.5]);
+		} else if (y < thirdOfHeight * 2) {
+			draw(x, y, step, step, [0.2, 0.8]);
+		} else {
+			draw(x, y, step, step, [0.1, 0.5, 0.9]);
+		}
 	}
 }
