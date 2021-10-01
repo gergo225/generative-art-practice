@@ -70,6 +70,13 @@ function doesCircleHaveACollision(circle) {
 		}
 	}
 
+	if (circle.x - circle.radius <= 0 ||
+		circle.y - circle.radius <= 0 ||
+		circle.x + circle.radius >= size ||
+		circle.y + circle.radius >= size) {
+		return true;
+	}
+
 	return false;
 }
 
