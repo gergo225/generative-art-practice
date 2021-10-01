@@ -1,8 +1,8 @@
-let canvas = document.querySelector('canvas');
-let context = canvas.getContext('2d');
+const canvas = document.querySelector('canvas');
+const context = canvas.getContext('2d');
 
-let size = 480;
-let dpr = window.devicePixelRatio;
+const size = 480;
+const dpr = window.devicePixelRatio;
 canvas.width = size * dpr;
 canvas.height = size * dpr;
 context.scale(dpr, dpr);
@@ -13,11 +13,11 @@ context.fillRect(0, 0, size, size);
 context.lineWidth = 2;
 
 
-let circles = [];
-let minRadius = 2;
-let maxRadius = 100;
-let totalCircles = 500;
-let createCircleAttempts = 500;
+const circles = [];
+const minRadius = 2;
+const maxRadius = 100;
+const totalCircles = 500;
+const createCircleAttempts = 500;
 
 context.strokeStyle = 'magenta';
 
@@ -60,10 +60,10 @@ function createAndDrawCircle() {
 
 function doesCircleHaveACollision(circle) {
 	for (let i = 0; i < circles.length; ++i) {
-		let otherCircle = circles[i];
-		let combinedRadii = circle.radius + otherCircle.radius;
-		let x = circle.x - otherCircle.x;
-		let y = circle.y - otherCircle.y;
+		const otherCircle = circles[i];
+		const combinedRadii = circle.radius + otherCircle.radius;
+		const x = circle.x - otherCircle.x;
+		const y = circle.y - otherCircle.y;
 
 		if (combinedRadii >= Math.sqrt(x * x + y * y)) {
 			return true;

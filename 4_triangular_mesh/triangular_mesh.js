@@ -1,8 +1,8 @@
-let canvas = document.querySelector('canvas');
-let context = canvas.getContext('2d');
+const canvas = document.querySelector('canvas');
+const context = canvas.getContext('2d');
 
-let size = 480;
-let dpr = window.devicePixelRatio;
+const size = 480;
+const dpr = window.devicePixelRatio;
 canvas.width = size * dpr;
 canvas.height = size * dpr;
 context.scale(dpr, dpr);
@@ -12,12 +12,12 @@ context.fillStyle = 'pink';
 context.fillRect(0, 0, size, size);
 
 context.fillStyle = 'purple';
-let gap = size / 7;
-let lines = [];
+const gap = size / 7;
+const lines = [];
 let odd = false;
 
 for (let y = gap / 2; y <= size; y += gap) {
-	let line = [];
+	const line = [];
 	odd = !odd;
 
 	for (let x = gap / 4; x <= size; x += gap) {
@@ -41,7 +41,7 @@ function drawTriangle(pointA, pointB, pointC) {
 	context.closePath();
 	context.stroke();
 
-	let redness = Math.floor(Math.random() * 10 + 6).toString(16);
+	const redness = Math.floor(Math.random() * 10 + 6).toString(16);
 	context.fillStyle = '#' + redness + '5B';
 	context.fill();
 }
@@ -49,7 +49,7 @@ function drawTriangle(pointA, pointB, pointC) {
 odd = true;
 for (let lineIndex = 0; lineIndex < lines.length - 1; lineIndex++) {
 	odd = !odd;
-	let combinedLine = [];
+	const combinedLine = [];
 
 	for (let i = 0; i < lines[lineIndex].length; i++) {
 		combinedLine.push(odd ? lines[lineIndex][i] : lines[lineIndex + 1][i]);

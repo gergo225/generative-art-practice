@@ -1,15 +1,15 @@
-let canvas = document.querySelector('canvas');
-let context = canvas.getContext('2d');
+const canvas = document.querySelector('canvas');
+const context = canvas.getContext('2d');
 
-let size = 480;
-let dpr = window.devicePixelRatio;
+const size = 480;
+const dpr = window.devicePixelRatio;
 canvas.width = size * dpr;
 canvas.height = size * dpr;
 context.scale(dpr, dpr);
 
 context.lineWidth = 2;
 
-let squareSize = 30;
+const squareSize = 30;
 
 context.fillStyle = 'lightgreen';
 context.fillRect(0, 0, size, size);
@@ -21,17 +21,17 @@ function draw(width, height) {
 }
 
 
-let randomDisplacement = 15;
-let rotateMultiplier = 20;
-let offset = 0;
+const randomDisplacement = 15;
+const rotateMultiplier = 20;
+const offset = 0;
 
 for (let i = 2 * squareSize; i <= size - 2 * squareSize; i += squareSize) {
 	for (let j = 2 * squareSize; j <= size - 2 * squareSize; j += squareSize) {
 		let plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-		let rotateAmount = j / size * Math.PI / 180 * plusOrMinus * Math.random() * rotateMultiplier;
+		const rotateAmount = j / size * Math.PI / 180 * plusOrMinus * Math.random() * rotateMultiplier;
 
 		plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-		let translateAmount = j / size * plusOrMinus * Math.random() * randomDisplacement;
+		const translateAmount = j / size * plusOrMinus * Math.random() * randomDisplacement;
 
 
 		context.save();

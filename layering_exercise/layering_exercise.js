@@ -1,8 +1,8 @@
-let canvas = document.querySelector('canvas');
-let context = canvas.getContext('2d');
+const canvas = document.querySelector('canvas');
+const context = canvas.getContext('2d');
 
-let size = 480;
-let dpr = window.devicePixelRatio;
+const size = 480;
+const dpr = window.devicePixelRatio;
 canvas.width = dpr * size;
 canvas.height = dpr * size;
 context.scale(dpr, dpr);
@@ -14,10 +14,10 @@ function drawLayeredSquares(x, y, areaSize) {
 
 	let rectSize = areaSize;
 	let rotation = Math.floor(180 * Math.random());
-	let layers = 10;
+	const layers = 10;
 	for (let layer = 0; layer < layers; layer++) {
-		let redness = (224 - 17 * layer);
-		let opacity = 0.07 + 0.15 * (1 - (layer / layers));
+		const redness = (224 - 17 * layer);
+		const opacity = 0.07 + 0.15 * (1 - (layer / layers));
 		context.fillStyle = 'rgba(' + redness + ', 56, 182, ' + opacity + ')';
 
 
@@ -37,7 +37,7 @@ function drawLayeredSquares(x, y, areaSize) {
 	context.restore();
 }
 
-let itemCount = 4 + Math.floor(Math.random() * 6);
+const itemCount = 4 + Math.floor(Math.random() * 6);
 for (let i = 0; i < itemCount; ++i) {
 	drawLayeredSquares(Math.random() * size, Math.random() * size, 20 + Math.random() * 80);
 }
