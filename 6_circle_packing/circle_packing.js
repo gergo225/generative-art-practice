@@ -22,11 +22,27 @@ let createCircleAttempts = 500;
 context.strokeStyle = 'magenta';
 
 function createAndDrawCircle() {
-	let newCircle = {
-		x: Math.floor(Math.random() * size),
-		y: Math.floor(Math.random() * size),
-		radius: minRadius
+	let newCircle;
+	let circleSafeToDraw = false;
+	for (let tries = 0; tries < createCircleAttempts; ++tries) {
+		newCircle = {
+			x: Math.floor(Math.random() * size),
+			y: Math.floor(Math.random() * size),
+			radius: minRadius
+		}
+
+		if (doesCircleHaveACollision(newCircle)) {
+			continue;
+		} else {
+			circleSafeToDraw = true;
+			break;
+		}
 	}
+
+	if (!circleSafeToDraw) {
+		return;
+	}
+
 
 	for (let radiusSize = minRadius; radiusSize <= maxRadius; radiusSize++) {
 		newCircle.radius = radiusSize;
