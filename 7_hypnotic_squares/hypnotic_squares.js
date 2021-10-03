@@ -13,9 +13,13 @@ context.fillRect(0, 0, size, size);
 context.lineWidth = 2;
 context.strokeStyle = 'green';
 
-const finalSize = 10;
-const startSize = size;
-const startSteps = 5;
+const finalSize = 3;
+const offset = 2;
+const tileCount = 7;
+const tileStep = (size - 2 * offset) / tileCount;
+const startSize = tileStep;
+let startSteps;	// set later, randomly
+const directions = [-1, 0, 1];	// where to tilt inner squares
 
 function draw(x, y, width, height, xMovement, yMovement, steps) {
 	context.beginPath();
@@ -34,4 +38,14 @@ function draw(x, y, width, height, xMovement, yMovement, steps) {
 	}
 }
 
-draw(0, 0, startSize, startSize, 1, 1, startSteps);
+
+for (let x = offset; x < size - offset; x += tileStep) {
+	for (let y = offset; y < size - offset; y += tileStep) {
+		startSteps = 2 + Math.ceil(Math.random() * 3);
+
+		const xMovement = directions[Math.floor(Math.random() * directions.length)];
+		const yMovement = directions[Math.floor(Math.random() * directions.length)];
+		draw(x, y, startSize, startSize, xMovement, yMovement, startSteps - 1);
+	}
+}
+
