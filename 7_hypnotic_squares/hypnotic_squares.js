@@ -24,10 +24,14 @@ function draw(x, y, width, height, xMovement, yMovement, steps) {
 
 	if (steps >= 0) {
 		const newSize = startSize * (steps / startSteps) + finalSize;
-		const newX = x + (width - newSize) / 2;
-		const newY = y + (height - newSize) / 2;
+		let newX = x + (width - newSize) / 2;
+		let newY = y + (height - newSize) / 2;
+
+		newX -= ((x - newX) / (steps + 2)) * xMovement;
+		newY -= ((y - newY) / (steps + 2)) * yMovement;
+
 		draw(newX, newY, newSize, newSize, xMovement, yMovement, steps - 1);
 	}
 }
 
-draw(0, 0, startSize, startSize, 0, 0, startSteps);
+draw(0, 0, startSize, startSize, 1, 1, startSteps);
