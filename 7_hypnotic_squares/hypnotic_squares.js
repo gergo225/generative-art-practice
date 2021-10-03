@@ -11,7 +11,7 @@ context.fillStyle = 'lightgreen';
 context.fillRect(0, 0, size, size);
 
 context.lineWidth = 2;
-context.strokeStyle = 'orange';
+context.strokeStyle = 'green';
 
 const finalSize = 10;
 const startSize = size;
